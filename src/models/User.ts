@@ -15,7 +15,6 @@ export interface iUser{
     favoriteRecipes?: iUserRecipe[],
 }
 
-
 const userSchema = new Schema<iUser>({
     name: { type: String, required: true },
     password: { type: String, required: true },
