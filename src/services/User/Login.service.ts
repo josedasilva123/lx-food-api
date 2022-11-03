@@ -1,4 +1,4 @@
-import User, { iUser } from "../../models/User";
+import User from "../../models/User";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { iLoginBody } from "../../routes/User/types";
@@ -30,7 +30,6 @@ export class UserLogin {
         id: user._id,
         name: user.name,
         email: user.email,
-        myRecipes: user.myRecipes,
         favoriteRecipes: user.favoriteRecipes,
       },
       token: token,
