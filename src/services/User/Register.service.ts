@@ -22,6 +22,7 @@ export class UserRegister {
     };
 
     await User.create(user);
+    
     return { message: "Cadastro realizado com sucesso!" };
   }
 }
