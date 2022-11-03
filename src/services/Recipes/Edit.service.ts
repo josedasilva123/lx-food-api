@@ -40,5 +40,7 @@ export class RecipeEdit {
         },
       }
     );
+
+    return { message: "Receita atualizada com sucesso!"}
   }
 }

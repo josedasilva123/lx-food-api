@@ -28,5 +28,7 @@ export class RecipeDelete {
     image.delete(deletePath);
 
     await Recipe.deleteOne({ _id: objectRecipeID });
+
+    return { message: "Receita excluída com sucesso!"}
   }
 }
