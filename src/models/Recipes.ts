@@ -9,6 +9,7 @@ interface iReview{
 
 export interface iRecipe{
    _id?: ObjectId;
+   userID: string;
    title: string;
    content: string;
    thumbnail_url: string;
@@ -17,6 +18,7 @@ export interface iRecipe{
 }
 
 const recipeSchema = new Schema<iRecipe>({
+    userID: { type: String, required: true },
     title: { type: String, required: true },
     content: { type: String, required: true },
     thumbnail_url: { type: String, required: true },
@@ -26,7 +28,6 @@ const recipeSchema = new Schema<iRecipe>({
     timestamps: true,
 })
 
+const Recipe = model<iRecipe>("Recipe", recipeSchema, "recipes");
 
-const User = model<iRecipe>("Recipe", recipeSchema, "recipes");
-
-export default User;
+export default Recipe;
