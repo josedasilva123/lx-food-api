@@ -16,7 +16,7 @@ export class RecipeCreate{
 
         await image.delete(file.path);
         
-        await Recipe.create({
+        const recipe = await Recipe.create({
             userID,
             title,        
             content,
@@ -24,6 +24,6 @@ export class RecipeCreate{
             categories,
         })
 
-        return { message: 'Receita criada com sucesso!'}
+        return { recipe, message: 'Receita criada com sucesso!'}
     }
 }
