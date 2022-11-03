@@ -1,9 +1,5 @@
 import Recipe from "../../models/Recipes";
-import { iGlobalQueryParams } from "../../routes/Recipes/types";
-
-interface iRecipeGetByCategoryParams extends iGlobalQueryParams {
-  category: string;
-}
+import { iRecipeGetByCategoryParams } from "../../routes/Recipes/types";
 
 export class RecipeGetByCategory {
   async execute(params: iRecipeGetByCategoryParams) {

@@ -1,10 +1,7 @@
 import { ObjectId } from "mongodb";
 import Recipe from "../../models/Recipes";
+import { iRecipeDeleteParams } from "../../routes/Recipes/types";
 import { Image } from "../File/Image";
-
-interface iRecipeDeleteParams {
-  recipeId: string;
-}
 
 export class RecipeDelete {
   async execute(params: iRecipeDeleteParams) {

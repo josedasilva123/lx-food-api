@@ -1,10 +1,6 @@
 import { ObjectId } from "mongodb";
 import Recipe from "../../models/Recipes";
-import { iGlobalQueryParams } from "../../routes/Recipes/types";
-
-interface iRecipeGetParams extends iGlobalQueryParams{
-    userId?: string;
-}
+import { iRecipeGetParams } from "../../routes/Recipes/types";
 
 export class RecipeGet {
     async execute(params: iRecipeGetParams) {

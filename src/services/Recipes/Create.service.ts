@@ -1,12 +1,6 @@
 import Recipe from "../../models/Recipes";
+import { iRecipeCreateBody } from "../../routes/Recipes/types";
 import { Image } from "../File/Image";
-
-interface iRecipeCreateBody{
-    userID: string;
-    title: string;
-    content: string;
-    categories: string[];
-}
 
 export class RecipeCreate{
     async execute(body: iRecipeCreateBody, file: Express.Multer.File){

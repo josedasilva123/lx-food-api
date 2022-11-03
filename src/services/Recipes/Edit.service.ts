@@ -1,13 +1,7 @@
 import { ObjectId } from "mongodb";
 import Recipe, { iRecipe } from "../../models/Recipes";
+import { iRecipeEditBody } from "../../routes/Recipes/types";
 import { Image } from "../File/Image";
-
-interface iRecipeEditBody{
-    _id: string;
-    title: string;
-    content: string;
-    categories: string[];
-}
 
 export class RecipeEdit {
   async execute(body: iRecipeEditBody, file: Express.Multer.File) {

@@ -1,9 +1,6 @@
 import { ObjectId } from "mongodb";
 import Recipe from "../../models/Recipes";
-
-interface iRecipeGetQueryParams{
-    _id?: string;
-}
+import { iRecipeGetQueryParams } from "../../routes/Recipes/types";
 
 export class RecipeGetOneById{
     async execute(query: iRecipeGetQueryParams){
