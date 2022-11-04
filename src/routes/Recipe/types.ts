@@ -21,6 +21,10 @@ export interface iGlobalRecipeQuery {
   skip: string;
 }
 
+export interface iRecipeGetParams {
+  userId?: string;
+}
+
 export interface iRecipeGetByOne {
   _id?: string;
 }
@@ -29,6 +33,6 @@ export interface iRecipeGetByCategoryParams  {
   category: string;
 }
 
-export interface iRecipeGetParams {
-  userId?: string;
+export interface iRecipeSearchParams{
+  search: string;
 }
