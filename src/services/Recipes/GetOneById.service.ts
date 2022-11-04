@@ -1,9 +1,9 @@
 import { ObjectId } from "mongodb";
 import Recipe from "../../models/Recipes";
-import { iRecipeGetQueryParams } from "../../routes/Recipes/types";
+import { iRecipeGetByOne } from "../../routes/Recipe/types";
 
 export class RecipeGetOneById{
-    async execute(query: iRecipeGetQueryParams){
+    async execute(query: iRecipeGetByOne){
         const { _id } = query;
         
         const objectID = new ObjectId(_id);

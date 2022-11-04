@@ -1,8 +1,8 @@
 import Recipe from "../../models/Recipes";
-import { iGlobalQueryParams } from "../../routes/Recipes/types";
+import { iGlobalRecipeQuery } from "../../routes/Recipe/types";
 
 export class RecipeSearch {
-  async execute(search: string, query: iGlobalQueryParams) {
+  async execute(search: string, query: iGlobalRecipeQuery) {
     const { skip, limit } = query;
     const searchRegex = new RegExp(search);
 
