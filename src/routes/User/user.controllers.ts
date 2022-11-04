@@ -8,7 +8,7 @@ import { iLoginBody, iRegisterBody } from "./types";
 export default class UserControllers{
     static async Register(req: Request<{}, {}, iRegisterBody, {}>, res: Response){
         const register = new UserRegister();
-        const response = await register.execute(req.body);
+        const response = await register.execute(req.body);        
 
         res.status(200).json(response);
     }
@@ -23,7 +23,7 @@ export default class UserControllers{
     static async AutoLogin(req: Request<{}, {}, iAuthenticateBody, {}>, res: Response){
         const autologin = new UserAutoLogin();
         const response = await autologin.execute(req.body);
-
+        
         res.status(200).json(response);
     }
 }
