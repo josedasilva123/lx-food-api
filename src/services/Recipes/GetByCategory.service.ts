@@ -1,9 +1,10 @@
 import Recipe from "../../models/Recipes";
-import { iRecipeGetByCategoryParams } from "../../routes/Recipes/types";
+import { iGlobalRecipeQuery, iRecipeGetByCategoryParams } from "../../routes/Recipe/types";
 
 export class RecipeGetByCategory {
-  async execute(params: iRecipeGetByCategoryParams) {
-    const { category, limit, skip } = params;
+  async execute(params: iRecipeGetByCategoryParams, query: iGlobalRecipeQuery) {
+    const { category } = params;
+    const { limit, skip } = query;
 
     const count = await Recipe.count({ categories: [category] });
 
