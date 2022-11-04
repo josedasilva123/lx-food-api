@@ -1,10 +1,10 @@
 import { ObjectId } from "mongodb";
 import Recipe, { iRecipe } from "../../models/Recipes";
-import { iRecipeEditBody } from "../../routes/Recipes/types";
+import { iRecipeEditBody } from "../../routes/Recipe/types";
 import { Image } from "../File/Image";
 
 export class RecipeEdit {
-  async execute(body: iRecipeEditBody, file: Express.Multer.File) {
+  async execute(body: iRecipeEditBody, file?: Express.Multer.File) {
     const { _id, title, content, categories } = body;
 
     const objectID = new ObjectId(_id);
