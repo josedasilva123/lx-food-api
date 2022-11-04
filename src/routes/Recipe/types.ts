@@ -11,6 +11,7 @@ export interface iRecipeDeleteParams {
 
 export interface iRecipeEditBody {
   _id: string;
+  userID: string;
   title: string;
   content: string;
   categories: string[];

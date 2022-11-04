@@ -5,11 +5,19 @@ import { Image } from "../File/Image";
 
 export class RecipeEdit {
   async execute(body: iRecipeEditBody, file?: Express.Multer.File) {
-    const { _id, title, content, categories } = body;
+    const { _id, userID, title, content, categories } = body;
 
     const objectID = new ObjectId(_id);
 
     const recipe = (await Recipe.findOne({ _id: objectID })) as iRecipe;
+
+    if(!recipe){
+      throw new Error("Desculpe, receita não encontrada.");      
+    }
+
+    if(userID !== String(recipe._id)){
+      throw new Error('Somente o propretário da receita pode edita-la.')
+    }
 
     let newImage = { path: recipe.thumbnail_url };
 
