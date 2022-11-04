@@ -16,19 +16,19 @@ export interface iRecipeEditBody {
   categories: string[];
 }
 
-export interface iGlobalQueryParams {
+export interface iGlobalRecipeQuery {
   limit: string;
   skip: string;
 }
 
-export interface iRecipeGetQueryParams {
+export interface iRecipeGetByOne {
   _id?: string;
 }
 
-export interface iRecipeGetByCategoryParams extends iGlobalQueryParams {
+export interface iRecipeGetByCategoryParams  {
   category: string;
 }
 
-export interface iRecipeGetParams extends iGlobalQueryParams {
+export interface iRecipeGetParams {
   userId?: string;
 }
