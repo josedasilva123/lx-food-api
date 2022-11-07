@@ -8,3 +8,5 @@ export const MulterFileHandler = Multer({
     fileSize: 5 * 1024 * 1024,
   },
 });
+
+export const MulterSingleUpload = MulterFileHandler.single("file");
