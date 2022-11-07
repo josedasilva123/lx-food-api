@@ -18,8 +18,8 @@ export interface iRecipeEditBody {
 }
 
 export interface iGlobalRecipeQuery {
-  limit: string;
-  skip: string;
+  limit?: string;
+  skip?: string;
 }
 
 export interface iRecipeGetParams {
@@ -31,9 +31,9 @@ export interface iRecipeGetByOne {
 }
 
 export interface iRecipeGetByCategoryParams  {
-  category: string;
+  category?: string;
 }
 
 export interface iRecipeSearchParams{
-  search: string;
+  search?: string;
 }
