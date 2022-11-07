@@ -4,6 +4,7 @@ import cors from "cors";
 import http from "http"
 
 import UserRoutes from './routes/User/user.routes';
+import RecipeRoutes from './routes/Recipe/recipe.routes';
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(
 app.use(express.json());
 
 app.use('/user', UserRoutes);
+app.use('/recipe', RecipeRoutes);
 
 export const serverHttp = http.createServer(app);
 
