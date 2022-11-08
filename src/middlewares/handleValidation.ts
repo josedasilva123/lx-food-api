@@ -2,17 +2,17 @@ import { Request, Response, NextFunction } from "express";
 import { validationResult } from "express-validator";
 
 export const Validate = (req: Request, res: Response, next: NextFunction) => {
-  const errors = validationResult(req);
+   const errors = validationResult(req);
 
-  if (errors.isEmpty()) {
-    return next();
-  }
+   if (errors.isEmpty()) {
+      return next();
+   }
 
-  const extractedErrors: object[] = [];
+   const extractedErrors: object[] = [];
 
-  errors.array().map((err) => extractedErrors.push({ [err.param]: err.msg }));
+   errors.array().map((err) => extractedErrors.push({ [err.param]: err.msg }));
 
-  return res.status(422).json({
-    errors: extractedErrors,
-  });
+   return res.status(422).json({
+      errors: extractedErrors,
+   });
 };

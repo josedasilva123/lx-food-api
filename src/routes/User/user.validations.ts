@@ -1,32 +1,19 @@
-import { body } from "express-validator"
+import { body } from "express-validator";
 
 export const userLoginValidation = () => {
-    return[
-        body('email')
-        .isString()
-        .withMessage('O e-mail (email) é obrigatório'),
-        
-        body('password')
-        .isString()
-        .withMessage('A senha (password) é obrigatória'),       
-    ]
-}
+   return [
+      body("email").isString().withMessage("O e-mail (email) é obrigatório"),
+
+      body("password").isString().withMessage("A senha (password) é obrigatória"),
+   ];
+};
 
 export const userRegisterValidation = () => {
-    return[
-        body('name')
-        .isString()
-        .withMessage('O nome (name) é obrigatório'),
+   return [
+      body("name").isString().withMessage("O nome (name) é obrigatório"),
 
-        body('email')
-        .isString()
-        .withMessage('O e-mail (email) é obrigatório')
-        .isEmail()
-        .withMessage('É necessário um e-mail válido'),
+      body("email").isString().withMessage("O e-mail (email) é obrigatório").isEmail().withMessage("É necessário um e-mail válido"),
 
-        body('password')
-        .isString()
-        .withMessage('A senha (password) é obrigatória'),
-    ]
-}
-
+      body("password").isString().withMessage("A senha (password) é obrigatória"),
+   ];
+};

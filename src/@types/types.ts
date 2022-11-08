@@ -1,3 +1,3 @@
-export interface iAuthenticateBody{
-    id: string;
+export interface iAuthenticateBody {
+   id: string;
 }
