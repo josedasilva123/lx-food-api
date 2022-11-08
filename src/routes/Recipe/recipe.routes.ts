@@ -2,14 +2,14 @@ import { Router } from "express";
 import { Authenticate } from "../../middlewares/authenticate";
 import { HandleErrors } from "../../middlewares/handleErrors";
 import { Validate } from "../../middlewares/handleValidation";
-import { MulterFileHandler, MulterSingleUpload } from "../../middlewares/multer";
+import { MulterSingleUpload } from "../../middlewares/multer";
 import RecipeControllers from "./recipe.controllers";
-import { recipeCreateValidation, recipeDeleteValidation, recipeEditValidation } from "./recipe.validations";
+import {recipeDeleteValidation } from "./recipe.validations";
 
 const router = Router();
 
 router.post("/", Authenticate, MulterSingleUpload, HandleErrors(RecipeControllers.Create));
-router.patch("/", Authenticate, Validate, HandleErrors(RecipeControllers.Edit))
+router.patch("/", Authenticate, MulterSingleUpload, HandleErrors(RecipeControllers.Edit))
 router.delete("/:recipeId", Authenticate, recipeDeleteValidation(), Validate)
 router.get("/", HandleErrors(RecipeControllers.Get))
 router.get("/:userId", HandleErrors(RecipeControllers.Get))
