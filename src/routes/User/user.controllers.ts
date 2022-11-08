@@ -3,7 +3,7 @@ import { iAuthenticateBody } from "../../@types/types";
 import { UserAutoLogin } from "../../services/User/AutoLogin.service";
 import { UserLogin } from "../../services/User/Login.service";
 import { UserRegister } from "../../services/User/Register.service";
-import { iLoginBody, iRegisterBody } from "./types";
+import { iLoginBody, iRegisterBody } from "./@types";
 
 export default class UserControllers {
    static async Register(req: Request<{}, {}, iRegisterBody, {}>, res: Response) {

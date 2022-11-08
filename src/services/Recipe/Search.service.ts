@@ -1,5 +1,5 @@
 import Recipe from "../../models/Recipes";
-import { iGlobalRecipeQuery } from "../../routes/Recipe/types";
+import { iGlobalRecipeQuery } from "../../routes/Recipe/@types";
 
 export class RecipeSearch {
    async execute(search: string, query: iGlobalRecipeQuery) {

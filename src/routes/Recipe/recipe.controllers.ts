@@ -15,7 +15,7 @@ import {
    iRecipeGetByOne,
    iRecipeGetParams,
    iRecipeSearchParams,
-} from "./types";
+} from "./@types";
 
 export default class RecipeControllers {
    static async Create(req: Request<{}, {}, iRecipeCreateBody, {}>, res: Response) {

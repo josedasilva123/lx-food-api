@@ -1,7 +1,7 @@
 import User from "../../models/User";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { iLoginBody } from "../../routes/User/types";
+import { iLoginBody } from "../../routes/User/@types";
 
 export class UserLogin {
    async execute(body: iLoginBody) {

@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 import Recipe from "../../models/Recipes";
-import { iRecipeGetByOne } from "../../routes/Recipe/types";
+import { iRecipeGetByOne } from "../../routes/Recipe/@types";
 
 export class RecipeGetOneById {
    async execute(query: iRecipeGetByOne) {

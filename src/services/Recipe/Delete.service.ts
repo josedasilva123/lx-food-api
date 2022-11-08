@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 import Recipe from "../../models/Recipes";
-import { iRecipeDeleteParams } from "../../routes/Recipe/types";
+import { iRecipeDeleteParams } from "../../routes/Recipe/@types";
 import { Image } from "../File/Image";
 
 export class RecipeDelete {

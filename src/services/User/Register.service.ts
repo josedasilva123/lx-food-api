@@ -1,6 +1,6 @@
 import User from "../../models/User";
 import bcrypt from "bcryptjs";
-import { iRegisterBody } from "../../routes/User/types";
+import { iRegisterBody } from "../../routes/User/@types";
 
 export class UserRegister {
    async execute(body: iRegisterBody) {

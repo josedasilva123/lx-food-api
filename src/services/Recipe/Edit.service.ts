@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 import Recipe, { iRecipe } from "../../models/Recipes";
-import { iRecipeEditBody } from "../../routes/Recipe/types";
+import { iRecipeEditBody } from "../../routes/Recipe/@types";
 import { Image } from "../File/Image";
 
 export class RecipeEdit {

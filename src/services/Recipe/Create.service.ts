@@ -1,5 +1,5 @@
 import Recipe from "../../models/Recipes";
-import { iRecipeCreateBody } from "../../routes/Recipe/types";
+import { iRecipeCreateBody } from "../../routes/Recipe/@types";
 import { Image } from "../File/Image";
 
 export class RecipeCreate {
