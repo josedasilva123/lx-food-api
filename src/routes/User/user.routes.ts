@@ -7,11 +7,8 @@ import { userLoginValidation, userRegisterValidation } from "./user.validations"
 
 const router = Router();
 
-router.post('/', userRegisterValidation(), Validate, HandleErrors(UserControllers.Register));
-router.post('/login', userLoginValidation(), Validate, HandleErrors(UserControllers.Login));
-router.get('/autologin', Authenticate, HandleErrors(UserControllers.AutoLogin));
+router.post("/", userRegisterValidation(), Validate, HandleErrors(UserControllers.Register));
+router.post("/login", userLoginValidation(), Validate, HandleErrors(UserControllers.Login));
+router.get("/autologin", Authenticate, HandleErrors(UserControllers.AutoLogin));
 
 export default router;
-
-
-

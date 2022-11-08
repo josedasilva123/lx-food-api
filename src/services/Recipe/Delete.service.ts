@@ -4,28 +4,25 @@ import { iRecipeDeleteParams } from "../../routes/Recipe/types";
 import { Image } from "../File/Image";
 
 export class RecipeDelete {
-  async execute(params: iRecipeDeleteParams) {
-    const { recipeId } = params;
-    
-    const objectRecipeID = new ObjectId(recipeId);
+   async execute(params: iRecipeDeleteParams) {
+      const { recipeId } = params;
 
-    const recipe = await Recipe.findOne({ _id: objectRecipeID });
+      const objectRecipeID = new ObjectId(recipeId);
 
-    if (!recipe) {
-      throw new Error("A receita que você está tentando excluir não existe.");
-    }
+      const recipe = await Recipe.findOne({ _id: objectRecipeID });
 
-    const deletePath = recipe.thumbnail_url.replace(
-      process.env.BASE_URL as string,
-      ""
-    );
+      if (!recipe) {
+         throw new Error("A receita que você está tentando excluir não existe.");
+      }
 
-    const image = new Image();
+      const deletePath = recipe.thumbnail_url.replace(process.env.BASE_URL as string, "");
 
-    image.delete(deletePath);
+      const image = new Image();
 
-    await Recipe.deleteOne({ _id: objectRecipeID });
+      image.delete(deletePath);
 
-    return { message: "Receita excluída com sucesso!"}
-  }
+      await Recipe.deleteOne({ _id: objectRecipeID });
+
+      return { message: "Receita excluída com sucesso!" };
+   }
 }
