@@ -22,8 +22,13 @@ export default class RecipeControllers {
     req: Request<{}, {}, iRecipeCreateBody, {}>,
     res: Response
   ) {
+
     if (!req.file) {
-      throw new Error("Arquivo enviando inválido.");
+      throw new Error("Arquivo enviado inválido.");
+    }
+
+    if(!req.body.title || !req.body.title || !req.body.userID){
+      throw new Error('Desculpe, um campo obrigatório está faltando.')
     }
 
     const recipeCreate = new RecipeCreate();

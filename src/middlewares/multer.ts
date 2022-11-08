@@ -5,8 +5,8 @@ export const MulterFileHandler = Multer({
     destination: 'uploads/',
   }), 
   limits: {
-    fileSize: 5 * 1024 * 1024,
-  },
+    fileSize: 2 * 1024 * 1024,
+  }, 
 });
 
 export const MulterSingleUpload = MulterFileHandler.single("file");

@@ -10,11 +10,7 @@ export const recipeCreateValidation = () => {
 
     body("content")
       .isString()
-      .withMessage("O conteúdo é (content) é obrigatório"),
-
-    body("categories")
-      .isArray()
-      .withMessage("A lista de categorias (categories) é obrigatória"),
+      .withMessage("O conteúdo é (content) é obrigatório"),   
   ];
 };
 

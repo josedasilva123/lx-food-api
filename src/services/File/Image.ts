@@ -9,7 +9,7 @@ export class Image extends File{
             width: 1000,
         })
         .webp({ quality: 50 })
-        .toFile(`uploads/webp/${file.filename}`);
+        .toFile(`uploads/webp/${file.filename}.webp`);
 
         return { path: `${process.env.BASE_URL}/uploads/webp/${file.filename}`}
     }
