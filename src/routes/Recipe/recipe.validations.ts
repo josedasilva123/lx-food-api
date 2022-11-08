@@ -1,6 +1,6 @@
 import { body, param, query } from "express-validator";
 
-/*
+
 export const recipeCreateValidation = () => {
   return [
     body("userID")
@@ -14,11 +14,11 @@ export const recipeCreateValidation = () => {
       .withMessage("O conteúdo é (content) é obrigatório"),  
        
     body("categories")
-      .isArray()
+      .isString()
       .withMessage("A lista de categorias (categories) é obrigatória"),  
   ];
 };
-*/
+
 
 export const recipeDeleteValidation = () => {
   return [
@@ -28,7 +28,7 @@ export const recipeDeleteValidation = () => {
   ];
 };
 
-/*
+
 export const recipeEditValidation = () => {
   return [
     body("_id")
@@ -50,7 +50,7 @@ export const recipeEditValidation = () => {
       .withMessage("A lista de categorias (categories) é obrigatória"),
   ];
 };
-*/
+
 
 export const recipeGetByCategoryValidation = () => {
   return [

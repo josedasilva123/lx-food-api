@@ -10,15 +10,15 @@ export class RecipeCreate{
         
         const { path } = await image.optmize(file);
 
-        await image.delete(file.path);
+        await image.delete(`uploads/${file.filename}`);
         
         const recipe = await Recipe.create({
             userID,
             title,        
             content,
             thumbnail_url: path,
-            categories,
-        })
+            categories: JSON.parse(categories),
+        })        
 
         return { recipe, message: 'Receita criada com sucesso!'}
     }

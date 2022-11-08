@@ -2,11 +2,11 @@ export interface iRecipeCreateBody{
     userID: string;
     title: string;
     content: string;
-    categories: string[];
+    categories: string;
 }
 
 export interface iRecipeDeleteParams {
-  recipeId: string;
+  recipeId?: string;
 }
 
 export interface iRecipeEditBody {
@@ -14,7 +14,7 @@ export interface iRecipeEditBody {
   userID: string;
   title: string;
   content: string;
-  categories: string[];
+  categories: string;
 }
 
 export interface iGlobalRecipeQuery {

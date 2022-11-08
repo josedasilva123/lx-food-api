@@ -38,7 +38,7 @@ export class RecipeEdit {
           title,
           content,
           thumbnail_url: newImage.path,
-          categories,
+          categories: JSON.parse(categories),
         },
       }
     );
