@@ -10,3 +10,4 @@ export async function connect() {
       console.error(`Erro: ${error}`);
    }
 }
+

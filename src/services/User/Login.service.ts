@@ -10,7 +10,7 @@ export class UserLogin {
       const user = await User.findOne({ email: email });
 
       if (!user) {
-         throw new Error("Desculpe, o usuário fornecido não existe");
+         throw new Error("Desculpe, o usuário fornecido não existe.");
       }
 
       if (!bcrypt.compareSync(password, user.password)) {
