@@ -7,7 +7,7 @@ export class CategoryCreate {
 
       const filteredSlug = slug.toLowerCase().replace(' ', '');
 
-      const existingCategory = await Category.find({ slug: filteredSlug });
+      const existingCategory = await Category.findOne({ slug: filteredSlug });
 
       if(existingCategory){
         throw new Error("Já existe uma categoria com o respectivo slug.");        
