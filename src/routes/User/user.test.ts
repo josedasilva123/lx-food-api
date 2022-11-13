@@ -4,7 +4,7 @@ import User from "../../models/User";
 import { serverHttp } from "../../server";
 
 beforeAll(async () => {
-   await mongoose.connect("mongodb://localhost:27017/lxcook-test");
+   await mongoose.connect("mongodb://localhost:27017/lxcook-user-test");
 });
 
 describe("User Routes", () => {
