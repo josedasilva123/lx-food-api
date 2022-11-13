@@ -8,7 +8,7 @@ export class CategoryDelete{
 
         const objectCategoryID = new ObjectId(categoryId);
 
-        const category = Category.findOne({ _id: objectCategoryID })
+        const category = await Category.findOne({ _id: objectCategoryID })
 
         if(!category){
             throw new Error('A categoria que você está tentando excluir não existe.')
