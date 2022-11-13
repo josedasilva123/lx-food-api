@@ -8,7 +8,7 @@ import { categoryCreateValidation, categoryDeleteValidation } from "./category.v
 const router = Router();
 
 router.post("/", Authenticate, categoryCreateValidation(), Validate, HandleErrors(CategoryControllers.Create));
-router.delete("/", Authenticate, categoryDeleteValidation(), Validate, HandleErrors(CategoryControllers.Delete))
+router.delete("/:categoryId", Authenticate, categoryDeleteValidation(), Validate, HandleErrors(CategoryControllers.Delete))
 router.get("/", Authenticate, HandleErrors(CategoryControllers.Get))
 
 export default router;
