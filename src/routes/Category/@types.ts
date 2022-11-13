@@ -4,5 +4,5 @@ export interface iCategoryCreateBody{
 }
 
 export interface iCategoryDeleteParams{
-    categoryId: string;
+    categoryId?: string;
 }
