@@ -13,7 +13,7 @@ export function Authenticate(req: Request, res: Response, next: NextFunction) {
 
             (req.body.id = decoded?.id), next();
          } catch (error) {
-            res.status(400).json({ error: "Sua token expirou ou é inválida!" });
+            res.status(400).json({ error: "Sua token expirou ou é inválida." });
          }
       });
    } else {
