@@ -9,6 +9,6 @@ const router = Router();
 
 router.post("/", Authenticate, categoryCreateValidation(), Validate, HandleErrors(CategoryControllers.Create));
 router.delete("/:categoryId", Authenticate, categoryDeleteValidation(), Validate, HandleErrors(CategoryControllers.Delete))
-router.get("/", Authenticate, HandleErrors(CategoryControllers.Get))
+router.get("/", HandleErrors(CategoryControllers.Get))
 
 export default router;
