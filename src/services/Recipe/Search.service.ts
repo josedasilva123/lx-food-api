@@ -4,7 +4,7 @@ import { iGlobalRecipeQuery } from "../../routes/Recipe/@types";
 export class RecipeSearch {
    async execute(search: string, query: iGlobalRecipeQuery) {
       const { skip, limit } = query;
-      const searchRegex = new RegExp(search);
+      const searchRegex = new RegExp(search, "i");
 
       const count = await Recipe.count({ title: { $regex: searchRegex } });
 

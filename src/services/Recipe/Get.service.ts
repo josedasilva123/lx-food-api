@@ -5,14 +5,14 @@ import { iGlobalRecipeQuery, iRecipeGetParams } from "../../routes/Recipe/@types
 export class RecipeGet {
    async execute(params: iRecipeGetParams, query: iGlobalRecipeQuery) {
       const { userId } = params;
-      const { limit, skip } = query;
+      const { limit, skip } = query;      
 
-      const newQuery = userId ? { _id: new ObjectId(userId) } : {};
+      const newQuery = userId ? { userID: userId } : undefined;
 
-      const count = (await Recipe.find(newQuery)).length;
+      const count = (await Recipe.find(newQuery as object)).length;
 
-      const recipes = await Recipe.find(newQuery).skip(Number(skip)).limit(Number(limit));
+      const recipes = await Recipe.find(newQuery as object).skip(Number(skip)).limit(Number(limit));
 
-      return { count, recipes };
+      return { count: count, recipes: recipes };
    }
 }

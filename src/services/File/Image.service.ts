@@ -1,6 +1,5 @@
-import { unlinkSync } from "fs";
 import sharp from "sharp";
-import { File } from "./File";
+import { File } from "./File.service";
 
 export class Image extends File {
    async optmize(file: Express.Multer.File) {
