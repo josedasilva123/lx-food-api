@@ -5,7 +5,7 @@ import { S3Storage } from "../utils/S3/S3";
 
 dotenv.config();
 
-const { s3 }  = new S3Storage();
+const { bucket, s3 }  = new S3Storage();
 
 /*
  aws: MulterS3({
@@ -29,7 +29,7 @@ const storages = {
 
    aws: MulterSharpS3({
       s3,
-      Bucket: "alexconderexamplebucket",
+      Bucket: bucket,
       ACL: "public-read",
       resize: {
          width: 1000,
