@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
 import Recipe from "../../models/Recipes";
 import { iRecipeDeleteParams } from "../../routes/Recipe/@types";
-import { Image } from "../File/Image.service";
+import { S3Delete } from "../../utils/S3/Delete";
 
 export class RecipeDelete {
    async execute(params: iRecipeDeleteParams) {
@@ -15,11 +15,9 @@ export class RecipeDelete {
          throw new Error("A receita que você está tentando excluir não existe.");
       }
 
-      const deletePath = recipe.thumbnail_url.replace(process.env.BASE_URL as string, "");
-
-      const image = new Image();
-
-      image.delete(deletePath);
+      const s3Delete = new S3Delete();
+      
+      s3Delete.execute(recipe.thumbnail_filename);
 
       await Recipe.deleteOne({ _id: objectRecipeID });
 

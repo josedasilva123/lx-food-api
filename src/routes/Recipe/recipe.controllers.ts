@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { Info } from "multer-sharp-s3/dist/types/main";
 import { RecipeCreate } from "../../services/Recipe/Create.service";
 import { RecipeDelete } from "../../services/Recipe/Delete.service";
 import { RecipeEdit } from "../../services/Recipe/Edit.service";
@@ -24,7 +25,7 @@ export default class RecipeControllers {
       }
 
       const recipeCreate = new RecipeCreate();
-      const response = await recipeCreate.execute(req.body, req.file as Express.Multer.File);
+      const response = await recipeCreate.execute(req.body, req.file as Info);
 
       res.status(200).json(response);
    }
@@ -38,7 +39,7 @@ export default class RecipeControllers {
 
    static async Edit(req: Request<{}, {}, iRecipeEditBody, {}>, res: Response) {
       const recipeEdit = new RecipeEdit();
-      const response = await recipeEdit.execute(req.body, req.file);
+      const response = await recipeEdit.execute(req.body, req.file as Info);
 
       res.status(200).json(response);
    }

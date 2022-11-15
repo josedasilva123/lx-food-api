@@ -1,22 +1,18 @@
+import { Info } from "multer-sharp-s3/dist/types/main";
 import Recipe from "../../models/Recipes";
 import { iRecipeCreateBody } from "../../routes/Recipe/@types";
 import { Image } from "../File/Image.service";
 
 export class RecipeCreate {
-   async execute(body: iRecipeCreateBody, file: Express.Multer.File) {
+   async execute(body: iRecipeCreateBody, file: Info) {
       const { userID, title, content, categories } = body;
-
-      const image = new Image();
-
-      const { path } = await image.optmize(file);
-
-      await image.delete(`uploads/${file.filename}`);
-
+      
       const recipe = await Recipe.create({
          userID,
          title,
          content,
-         thumbnail_url: path,
+         thumbnail_filename: file.Key,
+         thumbnail_url: file.Location,
          categories: JSON.parse(categories),
       });
 
