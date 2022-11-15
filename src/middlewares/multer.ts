@@ -1,31 +1,42 @@
 import Multer from "multer";
-import { S3 } from "aws-sdk";
-import MulterS3 from "multer-s3";
-import S3Storage from "multer-sharp-s3"
-import sharp from "sharp";
+import MulterSharpS3 from "multer-sharp-s3";
+import dotenv from "dotenv";
+import { S3Storage } from "../utils/S3/S3";
 
-const s3 = new S3({
-   region: process.env.AWS_DEFAULT_REGION
-});
+dotenv.config();
+
+const { s3 }  = new S3Storage();
+
+/*
+ aws: MulterS3({
+      s3: s3,
+      bucket: "alexconderexamplebucket",
+      acl: "public-read",
+      contentType: MulterS3.AUTO_CONTENT_TYPE,
+      metadata: function (req, file, cb) {
+         cb(null, { fieldName: file.fieldname });
+      },
+      key: function (req, file, cb) {
+         cb(null, Date.now().toString());
+      },
+   }),
+*/
 
 const storages = {
-   local:  Multer.diskStorage({
+   local: Multer.diskStorage({
       destination: "uploads/",
    }),
-   aws: S3Storage({
+
+   aws: MulterSharpS3({
       s3,
-      Bucket: 'alexcondertestingbucket321',
-      Key: MulterS3.AUTO_CONTENT_TYPE,
-      ACL: 'public-read',
+      Bucket: "alexconderexamplebucket",
+      ACL: "public-read",
       resize: {
          width: 1000,
-         options: {
-            fit: sharp.fit.contain,
-         }
       },
-      toFormat: 'webp',    
-   })
-}
+      toFormat: 'webp'
+   }),
+};
 
 export const MulterFileHandler = Multer({
    storage: storages.aws,
