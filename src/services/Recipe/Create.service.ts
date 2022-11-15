@@ -11,10 +11,11 @@ export class RecipeCreate {
          userID,
          title,
          content,
+         thumbnail_filename: file.Key,
          thumbnail_url: file.Location,
          categories: JSON.parse(categories),
       });
 
-      return { file, message: "Receita criada com sucesso!" };
+      return { recipe, message: "Receita criada com sucesso!" };
    }
 }

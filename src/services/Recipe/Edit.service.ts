@@ -27,6 +27,7 @@ export class RecipeEdit {
             $set: {
                title,
                content,
+               thumbnail_filename: file?.Key,
                thumbnail_url: file?.Location,
                categories: JSON.parse(categories),
             },
