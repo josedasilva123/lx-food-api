@@ -26,7 +26,7 @@ export interface iRecipeGetParams {
    userId?: string;
 }
 
-export interface iRecipeGetByOne {
+export interface iRecipeGetByOneParams {
    _id?: string;
 }
 
