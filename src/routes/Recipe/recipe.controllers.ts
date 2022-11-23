@@ -13,7 +13,7 @@ import {
    iRecipeDeleteParams,
    iRecipeEditBody,
    iRecipeGetByCategoryParams,
-   iRecipeGetByOne,
+   iRecipeGetByOneParams,
    iRecipeGetParams,
    iRecipeSearchParams,
 } from "./@types";
@@ -58,9 +58,9 @@ export default class RecipeControllers {
       res.status(200).json(response);
    }
 
-   static async GetOneById(req: Request<{}, {}, {}, iRecipeGetByOne>, res: Response) {
+   static async GetOneById(req: Request<iRecipeGetByOneParams, {}, {}, {}>, res: Response) {
       const recipeGetOneById = new RecipeGetOneById();
-      const response = await recipeGetOneById.execute(req.query);
+      const response = await recipeGetOneById.execute(req.params);
 
       res.status(200).json(response);
    }

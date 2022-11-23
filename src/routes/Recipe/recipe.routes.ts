@@ -13,7 +13,7 @@ router.patch("/", Authenticate, MulterSingleUpload, recipeEditValidation, Valida
 router.delete("/:recipeId", Authenticate, recipeDeleteValidation(), Validate, HandleErrors(RecipeControllers.Delete));
 router.get("/", HandleErrors(RecipeControllers.Get));
 router.get("/user/:userId", HandleErrors(RecipeControllers.Get));
-router.get("/recipe/", HandleErrors(RecipeControllers.GetOneById));
+router.get("/:_id", HandleErrors(RecipeControllers.GetOneById));
 router.get("/category/:category", HandleErrors(RecipeControllers.GetByCategory));
 router.get("/search/:search", HandleErrors(RecipeControllers.Search));
 
