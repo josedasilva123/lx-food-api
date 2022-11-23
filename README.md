@@ -1,4 +1,4 @@
-Uma API para um site de receitas em Node JS, utilizada para ensinar front-end 
+Uma API para um site de receitas em Node JS, utilizada para ensinar front-end
 
 ## Rotas de Usuário
 
@@ -8,9 +8,9 @@ Padrão de corpo
 
 ```json
 {
-	"name": "Alex Conder",
-	"email": "example@gmail.com",
-	"password": "@12Patinhos"
+   "name": "Alex Conder",
+   "email": "example@gmail.com",
+   "password": "@12Patinhos"
 }
 ```
 
@@ -18,7 +18,7 @@ Padrão de resposta
 
 ```json
 {
-    "message": "Cadastro realizado com sucesso!" 
+   "message": "Cadastro realizado com sucesso!"
 }
 ```
 
@@ -28,8 +28,8 @@ Padrão de corpo
 
 ```json
 {
-	"email": "example@gmail.com",
-	"password": "@12Patinhos"
+   "email": "example@gmail.com",
+   "password": "@12Patinhos"
 }
 ```
 
@@ -37,13 +37,13 @@ Padrão de resposta
 
 ```json
 {
-	"user": {
-		"id": "6368fd43446e687ef917f6fd",
-		"name": "Alex Conder",
-		"email": "alex.v.conder@gmail.com",
-		"favoriteRecipes": []
-	},
-	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNjhmZDQzNDQ2ZTY4N2VmOTE3ZjZmZCIsImlhdCI6MTY2ODYyNzQyNiwiZXhwIjoxNjY4NjcwNjI2fQ.UAM0XmnwfsaHT045QbBlmGxuQZ5cjN9KGGkuTvAJ_YA"
+   "user": {
+      "id": "6368fd43446e687ef917f6fd",
+      "name": "Alex Conder",
+      "email": "alex.v.conder@gmail.com",
+      "favoriteRecipes": []
+   },
+   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNjhmZDQzNDQ2ZTY4N2VmOTE3ZjZmZCIsImlhdCI6MTY2ODYyNzQyNiwiZXhwIjoxNjY4NjcwNjI2fQ.UAM0XmnwfsaHT045QbBlmGxuQZ5cjN9KGGkuTvAJ_YA"
 }
 ```
 
@@ -60,18 +60,19 @@ Envie a token no `headers` como auth
     }
 }
 ```
+
 (Este modelo vai consistir em todas as rotas que precisarem de autorização)
 
 Padrão de resposta
 
 ```json
 {
-	"user": {
-		"_id": "6368fd43446e687ef917f6fd",
-		"name": "Alex Conder",
-		"email": "alex.v.conder@gmail.com",
-		"favoriteRecipes": []
-	}
+   "user": {
+      "_id": "6368fd43446e687ef917f6fd",
+      "name": "Alex Conder",
+      "email": "alex.v.conder@gmail.com",
+      "favoriteRecipes": []
+   }
 }
 ```
 
@@ -91,22 +92,20 @@ Padrão de resposta
 
 ```json
 {
-	"recipe": {
-		"userID": "6368fd43446e687ef917f6fd",
-		"title": "Receita Exemplo",
-		"content": "O conteúdo é obrigatório",
-		"thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-		"thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-		"reviews": [],
-		"categories": [
-			"categoria"
-		],
-		"_id": "63753f5153c707b2ad83ecbd",
-		"createdAt": "2022-11-16T19:51:45.790Z",
-		"updatedAt": "2022-11-16T19:51:45.790Z",
-		"__v": 0
-	},
-	"message": "Receita criada com sucesso!"
+   "recipe": {
+      "userID": "6368fd43446e687ef917f6fd",
+      "title": "Receita Exemplo",
+      "content": "O conteúdo é obrigatório",
+      "thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
+      "thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
+      "reviews": [],
+      "categories": ["categoria"],
+      "_id": "63753f5153c707b2ad83ecbd",
+      "createdAt": "2022-11-16T19:51:45.790Z",
+      "updatedAt": "2022-11-16T19:51:45.790Z",
+      "__v": 0
+   },
+   "message": "Receita criada com sucesso!"
 }
 ```
 
@@ -115,7 +114,7 @@ Padrão de resposta
 O corpo precisa ser `multipart/formdata` e precisa conter os seguintes campos
 
 > userID - string
-> file - arquivo de imagem png ou jpg (opcional)*
+> file - arquivo de imagem png ou jpg (opcional)\*
 > title - string
 > content - string
 > categories - strigfied array
@@ -124,7 +123,7 @@ Padrão de resposta
 
 ```json
 {
-	"message": "Receita atualizada com sucesso!"
+   "message": "Receita atualizada com sucesso!"
 }
 ```
 
@@ -134,7 +133,7 @@ Não é necessário um corpo somente o parâmetro via URL
 
 ```json
 {
-	"message": "Receita excluída com sucesso!"
+   "message": "Receita excluída com sucesso!"
 }
 ```
 
@@ -147,24 +146,22 @@ Padrão de resposta
 
 ```json
 {
-	"count": 1,
-	"recipes": [
-		{
-			"_id": "63753f5153c707b2ad83ecbd",
-			"userID": "6368fd43446e687ef917f6fd",
-			"title": "Receita Exemplo",
-			"content": "O conteúdo é obrigatório",
-			"thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-			"thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-			"reviews": [],
-			"categories": [
-				"categoria"
-			],
-			"createdAt": "2022-11-16T19:51:45.790Z",
-			"updatedAt": "2022-11-16T19:51:45.790Z",
-			"__v": 0
-		}
-	]
+   "count": 1,
+   "recipes": [
+      {
+         "_id": "63753f5153c707b2ad83ecbd",
+         "userID": "6368fd43446e687ef917f6fd",
+         "title": "Receita Exemplo",
+         "content": "O conteúdo é obrigatório",
+         "thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
+         "thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
+         "reviews": [],
+         "categories": ["categoria"],
+         "createdAt": "2022-11-16T19:51:45.790Z",
+         "updatedAt": "2022-11-16T19:51:45.790Z",
+         "__v": 0
+      }
+   ]
 }
 ```
 
@@ -176,24 +173,22 @@ Padrão de resposta
 
 ```json
 {
-	"count": 1,
-	"recipes": [
-		{
-			"_id": "63753f5153c707b2ad83ecbd",
-			"userID": "6368fd43446e687ef917f6fd",
-			"title": "Receita Exemplo",
-			"content": "O conteúdo é obrigatório",
-			"thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-			"thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-			"reviews": [],
-			"categories": [
-				"categoria"
-			],
-			"createdAt": "2022-11-16T19:51:45.790Z",
-			"updatedAt": "2022-11-16T19:51:45.790Z",
-			"__v": 0
-		}
-	]
+   "count": 1,
+   "recipes": [
+      {
+         "_id": "63753f5153c707b2ad83ecbd",
+         "userID": "6368fd43446e687ef917f6fd",
+         "title": "Receita Exemplo",
+         "content": "O conteúdo é obrigatório",
+         "thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
+         "thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
+         "reviews": [],
+         "categories": ["categoria"],
+         "createdAt": "2022-11-16T19:51:45.790Z",
+         "updatedAt": "2022-11-16T19:51:45.790Z",
+         "__v": 0
+      }
+   ]
 }
 ```
 
@@ -205,24 +200,22 @@ Padrão de resposta
 
 ```json
 {
-	"count": 1,
-	"recipes": [
-		{
-			"_id": "63753f5153c707b2ad83ecbd",
-			"userID": "6368fd43446e687ef917f6fd",
-			"title": "Receita Exemplo",
-			"content": "O conteúdo é obrigatório",
-			"thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-			"thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-			"reviews": [],
-			"categories": [
-				"categoria"
-			],
-			"createdAt": "2022-11-16T19:51:45.790Z",
-			"updatedAt": "2022-11-16T19:51:45.790Z",
-			"__v": 0
-		}
-	]
+   "count": 1,
+   "recipes": [
+      {
+         "_id": "63753f5153c707b2ad83ecbd",
+         "userID": "6368fd43446e687ef917f6fd",
+         "title": "Receita Exemplo",
+         "content": "O conteúdo é obrigatório",
+         "thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
+         "thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
+         "reviews": [],
+         "categories": ["categoria"],
+         "createdAt": "2022-11-16T19:51:45.790Z",
+         "updatedAt": "2022-11-16T19:51:45.790Z",
+         "__v": 0
+      }
+   ]
 }
 ```
 
@@ -234,24 +227,22 @@ Padrão de resposta
 
 ```json
 {
-	"count": 1,
-	"recipes": [
-		{
-			"_id": "63753f5153c707b2ad83ecbd",
-			"userID": "6368fd43446e687ef917f6fd",
-			"title": "Receita Exemplo",
-			"content": "O conteúdo é obrigatório",
-			"thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-			"thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-			"reviews": [],
-			"categories": [
-				"categoria"
-			],
-			"createdAt": "2022-11-16T19:51:45.790Z",
-			"updatedAt": "2022-11-16T19:51:45.790Z",
-			"__v": 0
-		}
-	]
+   "count": 1,
+   "recipes": [
+      {
+         "_id": "63753f5153c707b2ad83ecbd",
+         "userID": "6368fd43446e687ef917f6fd",
+         "title": "Receita Exemplo",
+         "content": "O conteúdo é obrigatório",
+         "thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
+         "thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
+         "reviews": [],
+         "categories": ["categoria"],
+         "createdAt": "2022-11-16T19:51:45.790Z",
+         "updatedAt": "2022-11-16T19:51:45.790Z",
+         "__v": 0
+      }
+   ]
 }
 ```
 
@@ -261,21 +252,19 @@ Padrão de resposta
 
 ```json
 {
-	"recipe": {
-		"_id": "63753f5153c707b2ad83ecbd",
-		"userID": "6368fd43446e687ef917f6fd",
-		"title": "Receita Exemplo",
-		"content": "O conteúdo é obrigatório",
-		"thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-		"thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-		"reviews": [],
-		"categories": [
-			"categoria"
-		],
-		"createdAt": "2022-11-16T19:51:45.790Z",
-		"updatedAt": "2022-11-16T19:51:45.790Z",
-		"__v": 0
-	}
+   "recipe": {
+      "_id": "63753f5153c707b2ad83ecbd",
+      "userID": "6368fd43446e687ef917f6fd",
+      "title": "Receita Exemplo",
+      "content": "O conteúdo é obrigatório",
+      "thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
+      "thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
+      "reviews": [],
+      "categories": ["categoria"],
+      "createdAt": "2022-11-16T19:51:45.790Z",
+      "updatedAt": "2022-11-16T19:51:45.790Z",
+      "__v": 0
+   }
 }
 ```
 
@@ -287,8 +276,8 @@ Padrão de corpo
 
 ```json
 {
-	"slug": "frutas",
-	"name": "Frutas"
+   "slug": "frutas",
+   "name": "Frutas"
 }
 ```
 
@@ -296,15 +285,15 @@ Padrão de resposta
 
 ```json
 {
-	"category": {
-		"slug": "frutas",
-		"name": "Frutas",
-		"_id": "637e1b659e648375aeed83e9",
-		"createdAt": "2022-11-23T13:08:53.200Z",
-		"updatedAt": "2022-11-23T13:08:53.200Z",
-		"__v": 0
-	},
-	"message": "Categoria criada com sucesso."
+   "category": {
+      "slug": "frutas",
+      "name": "Frutas",
+      "_id": "637e1b659e648375aeed83e9",
+      "createdAt": "2022-11-23T13:08:53.200Z",
+      "updatedAt": "2022-11-23T13:08:53.200Z",
+      "__v": 0
+   },
+   "message": "Categoria criada com sucesso."
 }
 ```
 
@@ -312,32 +301,32 @@ Padrão de resposta
 
 Está rota não precisa de um corpo
 
-Padrão de resposta 
+Padrão de resposta
 
 ```json
 {
-	"message": "Categoria excluida com sucesso!"
+   "message": "Categoria excluida com sucesso!"
 }
 ```
 
-### Retornar categorias /category 
+### Retornar categorias /category
 
 Está rota não precisa de um corpo
 
-Padrão de resposta 
+Padrão de resposta
 
 ```json
 {
-	"categories": [
-		{
-			"_id": "637e1c799e648375aeed83ef",
-			"slug": "frutas",
-			"name": "Frutas",
-			"createdAt": "2022-11-23T13:13:29.958Z",
-			"updatedAt": "2022-11-23T13:13:29.958Z",
-			"__v": 0
-		}
-	]
+   "categories": [
+      {
+         "_id": "637e1c799e648375aeed83ef",
+         "slug": "frutas",
+         "name": "Frutas",
+         "createdAt": "2022-11-23T13:13:29.958Z",
+         "updatedAt": "2022-11-23T13:13:29.958Z",
+         "__v": 0
+      }
+   ]
 }
 ```
 
@@ -345,9 +334,6 @@ Padrão de resposta
 
 ```json
 {
-	"error": "Mensagem de erro..."
+   "error": "Mensagem de erro..."
 }
 ```
-
-
-
