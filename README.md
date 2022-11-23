@@ -82,11 +82,11 @@ Padrão de resposta
 
 O corpo precisa ser `multipart/formdata` e precisa conter os seguintes campos
 
-> userID - string
-> file - arquivo de imagem png ou jpg
-> title - string
-> content - string
-> categories - strigfied array
+- userID - string
+- file - arquivo de imagem png ou jpg
+- title - string
+- content - string
+- categories - strigfied array
 
 Padrão de resposta
 
@@ -113,11 +113,11 @@ Padrão de resposta
 
 O corpo precisa ser `multipart/formdata` e precisa conter os seguintes campos
 
-> userID - string
-> file - arquivo de imagem png ou jpg (opcional)\*
-> title - string
-> content - string
-> categories - strigfied array
+- userID - string
+- file - arquivo de imagem png ou jpg (opcional)\*
+- title - string
+- content - string
+- categories - strigfied array
 
 Padrão de resposta
 
