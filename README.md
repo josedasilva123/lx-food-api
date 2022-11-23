@@ -165,7 +165,7 @@ Padrão de resposta
 }
 ```
 
-### Retornar somente as receitas de um determinado usuário /recipe/user/6368fd43446e687ef917f6fd GET
+### Retornar somente as receitas de um determinado usuário /recipe/user/:recipeId GET
 
 Está rota é pública e permite os parâmetros `skip` e `limit`.
 
