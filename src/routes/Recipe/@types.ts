@@ -18,6 +18,7 @@ export interface iRecipeEditBody {
 }
 
 export interface iGlobalRecipeQuery {
+   userId?: string;
    category?: string;
    search?: string;
    limit?: string;
