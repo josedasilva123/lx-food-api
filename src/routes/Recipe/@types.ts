@@ -18,6 +18,8 @@ export interface iRecipeEditBody {
 }
 
 export interface iGlobalRecipeQuery {
+   category?: string;
+   search?: string;
    limit?: string;
    skip?: string;
 }

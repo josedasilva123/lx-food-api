@@ -15,6 +15,6 @@ router.get("/", HandleErrors(RecipeControllers.Get));
 router.get("/user/:userId", HandleErrors(RecipeControllers.Get));
 router.get("/:_id", HandleErrors(RecipeControllers.GetOneById));
 router.get("/category/:category", HandleErrors(RecipeControllers.GetByCategory));
-router.get("/search/:search", HandleErrors(RecipeControllers.Search));
+router.get("/search", HandleErrors(RecipeControllers.Search));
 
 export default router;
