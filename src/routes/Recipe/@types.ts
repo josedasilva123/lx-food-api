@@ -18,22 +18,13 @@ export interface iRecipeEditBody {
 }
 
 export interface iGlobalRecipeQuery {
+   userId?: string;
+   category?: string;
+   search?: string;
    limit?: string;
    skip?: string;
 }
 
-export interface iRecipeGetParams {
-   userId?: string;
-}
-
 export interface iRecipeGetByOneParams {
    _id?: string;
-}
-
-export interface iRecipeGetByCategoryParams {
-   category?: string;
-}
-
-export interface iRecipeSearchParams {
-   search?: string;
 }
