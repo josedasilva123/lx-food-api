@@ -114,12 +114,7 @@ Padrão de resposta
 O corpo precisa ser `multipart/formdata` e precisa conter os seguintes campos
 
 - userID - string
-- file - arquivo de imagem png ou jpg (opcional)
-
-
-
-
-
+- file - arquivo de imagem png ou jpg (opcional)\*
 - title - string
 - content - string
 - categories - strigfied array
@@ -143,9 +138,6 @@ Não é necessário um corpo somente o parâmetro via URL
 ```
 
 ### Retornar receitas /recipe GET
-
-Está rota é pública e permite os parâmetros `skip` e `limit`.
-Ex: /recipe?skip=5&limit=10
 
 Padrão de resposta
 
