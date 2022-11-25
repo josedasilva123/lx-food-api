@@ -4,18 +4,13 @@ import { RecipeCreate } from "../../services/Recipe/Create.service";
 import { RecipeDelete } from "../../services/Recipe/Delete.service";
 import { RecipeEdit } from "../../services/Recipe/Edit.service";
 import { RecipeGet } from "../../services/Recipe/Get.service";
-import { RecipeGetByCategory } from "../../services/Recipe/GetByCategory.service";
 import { RecipeGetOneById } from "../../services/Recipe/GetOneById.service";
-import { RecipeSearch } from "../../services/Recipe/Search.service";
 import {
    iGlobalRecipeQuery,
    iRecipeCreateBody,
    iRecipeDeleteParams,
    iRecipeEditBody,
-   iRecipeGetByCategoryParams,
    iRecipeGetByOneParams,
-   iRecipeGetParams,
-   iRecipeSearchParams,
 } from "./@types";
 
 export default class RecipeControllers {
@@ -44,16 +39,9 @@ export default class RecipeControllers {
       res.status(200).json(response);
    }
 
-   static async Get(req: Request<iRecipeGetParams, {}, {}, iGlobalRecipeQuery>, res: Response) {
+   static async Get(req: Request<{}, {}, {}, iGlobalRecipeQuery>, res: Response) {
       const recipeGet = new RecipeGet();
-      const response = await recipeGet.execute(req.params, req.query);
-
-      res.status(200).json(response);
-   }
-
-   static async GetByCategory(req: Request<iRecipeGetByCategoryParams, {}, {}, iGlobalRecipeQuery>, res: Response) {
-      const recipeGetByCategory = new RecipeGetByCategory();
-      const response = await recipeGetByCategory.execute(req.params, req.query);
+      const response = await recipeGet.execute(req.query);
 
       res.status(200).json(response);
    }
@@ -61,13 +49,6 @@ export default class RecipeControllers {
    static async GetOneById(req: Request<iRecipeGetByOneParams, {}, {}, {}>, res: Response) {
       const recipeGetOneById = new RecipeGetOneById();
       const response = await recipeGetOneById.execute(req.params);
-
-      res.status(200).json(response);
-   }
-
-   static async Search(req: Request<iRecipeSearchParams, {}, {}, iGlobalRecipeQuery>, res: Response) {
-      const recipeSearch = new RecipeSearch();
-      const response = await recipeSearch.execute(req.params.search as string, req.query);
 
       res.status(200).json(response);
    }
