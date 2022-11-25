@@ -3,7 +3,7 @@ import { iGlobalRecipeQuery } from "../../routes/Recipe/@types";
 
 export class RecipeGet {
    async execute(query: iGlobalRecipeQuery) {
-      const { userId, category, search, limit, skip } = query;
+      const { category, userId, search, limit, skip } = query;
 
       let newQuery = {};
 
