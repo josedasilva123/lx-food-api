@@ -82,11 +82,11 @@ Padrão de resposta
 
 O corpo precisa ser `multipart/formdata` e precisa conter os seguintes campos
 
-> userID - string
-> file - arquivo de imagem png ou jpg
-> title - string
-> content - string
-> categories - strigfied array
+- userID - string
+- file - arquivo de imagem png ou jpg
+- title - string
+- content - string
+- categories - strigfied array
 
 Padrão de resposta
 
@@ -113,11 +113,16 @@ Padrão de resposta
 
 O corpo precisa ser `multipart/formdata` e precisa conter os seguintes campos
 
-> userID - string
-> file - arquivo de imagem png ou jpg (opcional)\*
-> title - string
-> content - string
-> categories - strigfied array
+- userID - string
+- file - arquivo de imagem png ou jpg (opcional)
+
+
+
+
+
+- title - string
+- content - string
+- categories - strigfied array
 
 Padrão de resposta
 
@@ -166,60 +171,6 @@ Padrão de resposta
 ```
 
 ### Retornar somente as receitas de um determinado usuário /recipe/user/6368fd43446e687ef917f6fd GET
-
-Está rota é pública e permite os parâmetros `skip` e `limit`.
-
-Padrão de resposta
-
-```json
-{
-   "count": 1,
-   "recipes": [
-      {
-         "_id": "63753f5153c707b2ad83ecbd",
-         "userID": "6368fd43446e687ef917f6fd",
-         "title": "Receita Exemplo",
-         "content": "O conteúdo é obrigatório",
-         "thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-         "thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-         "reviews": [],
-         "categories": ["categoria"],
-         "createdAt": "2022-11-16T19:51:45.790Z",
-         "updatedAt": "2022-11-16T19:51:45.790Z",
-         "__v": 0
-      }
-   ]
-}
-```
-
-### Busca de receitas /recipe/search/Rece GET
-
-Está rota é pública e permite os parâmetros `skip` e `limit`.
-
-Padrão de resposta
-
-```json
-{
-   "count": 1,
-   "recipes": [
-      {
-         "_id": "63753f5153c707b2ad83ecbd",
-         "userID": "6368fd43446e687ef917f6fd",
-         "title": "Receita Exemplo",
-         "content": "O conteúdo é obrigatório",
-         "thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-         "thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/bdacb8b4ff4e6eb74459d37cd6bf7ca9",
-         "reviews": [],
-         "categories": ["categoria"],
-         "createdAt": "2022-11-16T19:51:45.790Z",
-         "updatedAt": "2022-11-16T19:51:45.790Z",
-         "__v": 0
-      }
-   ]
-}
-```
-
-### Retornar receitas de uma determinada categoria /recipe/category/categoria GET
 
 Está rota é pública e permite os parâmetros `skip` e `limit`.
 

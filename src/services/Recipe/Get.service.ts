@@ -1,23 +1,23 @@
 import Recipe from "../../models/Recipes";
-import { iGlobalRecipeQuery, iRecipeGetParams } from "../../routes/Recipe/@types";
+import { iGlobalRecipeQuery } from "../../routes/Recipe/@types";
 
 export class RecipeGet {
-   async execute(params: iRecipeGetParams, query: iGlobalRecipeQuery) {
+   async execute(query: iGlobalRecipeQuery) {
       const { userId, category, search, limit, skip } = query;
 
-      let newQuery;
+      let newQuery = {};
 
-      const categoryQuery = category ? { categories: [category] } : {};
+      if(category){
+         newQuery = { ...newQuery, categories: [category] }
+      }
 
-      if (userId) {
-         newQuery = { ...categoryQuery, userID: userId };
-      } else if (search) {
+      if(userId) {
+         newQuery = { ...newQuery, userID: userId };
+      }   
+
+      if(search) {
          const searchRegex = new RegExp(search, "i");
-         newQuery = { ...categoryQuery, title: { $regex: searchRegex } };
-      } else if (category) {
-         newQuery = categoryQuery;
-      } else {
-         newQuery = undefined;
+         newQuery = { ...newQuery, title: { $regex: searchRegex } };
       }
 
       const count = (await Recipe.find(newQuery as object)).length;

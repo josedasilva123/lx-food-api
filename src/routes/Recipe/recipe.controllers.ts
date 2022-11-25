@@ -11,7 +11,6 @@ import {
    iRecipeDeleteParams,
    iRecipeEditBody,
    iRecipeGetByOneParams,
-   iRecipeGetParams,
 } from "./@types";
 
 export default class RecipeControllers {
@@ -40,9 +39,9 @@ export default class RecipeControllers {
       res.status(200).json(response);
    }
 
-   static async Get(req: Request<iRecipeGetParams, {}, {}, iGlobalRecipeQuery>, res: Response) {
+   static async Get(req: Request<{}, {}, {}, iGlobalRecipeQuery>, res: Response) {
       const recipeGet = new RecipeGet();
-      const response = await recipeGet.execute(req.params, req.query);
+      const response = await recipeGet.execute(req.query);
 
       res.status(200).json(response);
    }
