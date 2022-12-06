@@ -44,6 +44,6 @@ export class FavoriteDelete {
          }
       );
 
-      return { recipes: newFavoriteRecipeList, message: "Favorito adicionado com sucesso!" };
+      return { message: "Favorito removido com sucesso!" };
    }
 }

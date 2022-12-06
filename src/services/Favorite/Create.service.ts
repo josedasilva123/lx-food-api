@@ -39,6 +39,6 @@ export class FavoriteCreate {
             }    
         })
 
-        return { recipes: newFavoriteRecipeList, message: 'Favorito adicionado com sucesso!'}        
+        return { message: 'Favorito adicionado com sucesso!'}        
     }
 }
