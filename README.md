@@ -194,6 +194,38 @@ Padrão de resposta
 }
 ```
 
+## Rotas de Favoritos
+
+### Adicionar favorito /favorite POST (Precisa de autorização)
+
+```json
+{
+	"recipeId": "637e1f5d9e648375aeed83f2",
+	"title": "Hamburguer Boladão",
+	"thumbnail_url": "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/a1b95a71fa39b58672ce269cd0d6d88d"
+}
+```
+
+Padrão de resposta
+
+```json
+{
+	"message": "Favorito adicionado com sucesso!"
+}
+```
+
+### Remover favorito /favorite/:recipeId DELETE (Precisa de autorização)
+
+Essa rota não precisa de um corpo
+
+Padrão de resposta
+
+```json
+{
+	"message": "Favorito removido com sucesso!"
+}
+```
+
 ## Rotas de Categoria
 
 ### Criar uma categoria /category POST (Precisa de autorização)
