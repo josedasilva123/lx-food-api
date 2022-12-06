@@ -7,5 +7,5 @@ export interface iFavoriteCreateBody extends iAuthenticateBody{
 }
 
 export interface iFavoriteDeleteParams{
-    recipeId: string;
+    recipeId?: string;
 }

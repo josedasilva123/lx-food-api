@@ -12,7 +12,7 @@ export const favoriteCreateValidation = () => {
    ];
 };
 
-export const userRegisterValidation = () => {
+export const favoriteDeleteValidation = () => {
    return [
       body("id").isString().withMessage("O id do usuário é obrigatório"),
       
