@@ -11,21 +11,19 @@ export class FavoriteCreate {
 
         const user = await User.findOne({ _id: newObjectUserID }) as iUser;
 
-        if(!user){
-            throw new Error("Usuário inválido.");
-        }
-
         if(user.favoriteRecipes?.some(recipe => recipe.id === recipeId)){
             throw new Error("Está receita já está na lista de favoritos.");
         }
 
         const newObjectRecipeID = new ObjectId(recipeId);
 
+        /*
         const recipe = await Recipe.findOne({ _id: newObjectRecipeID });
 
         if(!recipe){
             throw new Error("A receita que você está tentando adicionar não existe.");    
         }
+        */
 
         const newFavoriteRecipe = { id: recipeId, title, thumbnail_url }; 
 
