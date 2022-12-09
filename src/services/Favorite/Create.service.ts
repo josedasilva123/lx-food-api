@@ -16,14 +16,12 @@ export class FavoriteCreate {
         }
 
         const newObjectRecipeID = new ObjectId(recipeId);
-
-        /*
+        
         const recipe = await Recipe.findOne({ _id: newObjectRecipeID });
 
         if(!recipe){
             throw new Error("A receita que você está tentando adicionar não existe.");    
-        }
-        */
+        }        
 
         const newFavoriteRecipe = { id: recipeId, title, thumbnail_url }; 
 
