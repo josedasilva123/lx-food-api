@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "build": "docker build -t lexcook-docker-image .",
-    "docker": "docker run -d -p 3030:3030 --name lexcook-docker lexcook-docker-image",
-    "start:docker": "docker start lexcook-docker",
+  "scripts": {   
+    "build": "npx tsc",
+    "start": "node app/index.js",
     "start:dev": "nodemon",
-    "stop:docker": "docker stop lexcook-docker",
     "test": "jest"
   },
   "author": "",
