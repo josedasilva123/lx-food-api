@@ -31,7 +31,7 @@ class FavoriteCreate {
             if (!recipe) {
                 throw new Error("A receita que você está tentando adicionar não existe.");
             }
-            const newFavoriteRecipe = { id: recipeId, title, thumbnail_url };
+            const newFavoriteRecipe = { recipeId, title, thumbnail_url };
             const newFavoriteRecipeList = [...(user.favoriteRecipes ? user.favoriteRecipes : []), newFavoriteRecipe];
             yield User_1.default.updateOne({
                 _id: newObjectUserID

@@ -23,7 +23,7 @@ export class FavoriteCreate {
             throw new Error("A receita que você está tentando adicionar não existe.");    
         }        
 
-        const newFavoriteRecipe = { id: recipeId, title, thumbnail_url }; 
+        const newFavoriteRecipe = { recipeId, title, thumbnail_url }; 
 
         const newFavoriteRecipeList = [ ...(user.favoriteRecipes ? user.favoriteRecipes : []), newFavoriteRecipe];
 
