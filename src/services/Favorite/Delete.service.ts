@@ -15,11 +15,11 @@ export class FavoriteDelete {
 
       const user = (await User.findOne({ _id: newObjectUserID })) as iUser;
 
-      if (!user.favoriteRecipes?.some((recipe) => recipe.id === recipeId)) {
+      if (!user.favoriteRecipes?.some((recipe) => recipe.recipeId === recipeId)) {
          throw new Error("Está receita não está na lista de favoritos ou é inválida.");
       }
 
-      const newFavoriteRecipeList = user.favoriteRecipes?.filter((recipe) => recipe.id !== recipeId);
+      const newFavoriteRecipeList = user.favoriteRecipes?.filter((recipe) => recipe.recipeId !== recipeId);
 
       await User.updateOne(
          {

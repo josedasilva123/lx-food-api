@@ -1,7 +1,7 @@
 import { Schema, model, ObjectId } from "mongoose";
 
 interface iUserRecipe {
-   id: string;
+   recipeId: string;
    title: string;
    categories: string[];
 }

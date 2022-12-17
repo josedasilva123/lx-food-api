@@ -23,7 +23,7 @@ class FavoriteDelete {
             const { recipeId } = params;
             const newObjectUserID = new mongodb_1.ObjectId(id);
             const user = (yield User_1.default.findOne({ _id: newObjectUserID }));
-            if (!((_a = user.favoriteRecipes) === null || _a === void 0 ? void 0 : _a.some((recipe) => recipe.id === recipeId))) {
+            if (!((_a = user.favoriteRecipes) === null || _a === void 0 ? void 0 : _a.some((recipe) => recipe.recipeId === recipeId))) {
                 throw new Error("Está receita não está na lista de favoritos ou é inválida.");
             }
             const newFavoriteRecipeList = (_b = user.favoriteRecipes) === null || _b === void 0 ? void 0 : _b.filter((recipe) => recipe.id !== recipeId);
