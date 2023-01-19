@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import request from "supertest";
-import Category from "../../models/Category";
 import User from "../../models/User";
 import { serverHttp } from "../../server";
 
@@ -22,6 +21,7 @@ const getMockUserToken = async (email: string, password: string) => {
 beforeAll(async () => {
    await mongoose.connect("mongodb://localhost:27017/lxcook-test");
    await request(serverHttp).post("/user").send(mockUser);
+   
 });
 
 describe("Favorite Routes", () => {
