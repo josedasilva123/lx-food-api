@@ -82,7 +82,6 @@ Padrão de resposta
 
 O corpo precisa ser `multipart/formdata` e precisa conter os seguintes campos
 
-- userID - string
 - file - arquivo de imagem png ou jpg
 - title - string
 - content - string
@@ -93,7 +92,7 @@ Padrão de resposta
 ```json
 {
    "recipe": {
-      "userID": "6368fd43446e687ef917f6fd",
+      "userId": "6368fd43446e687ef917f6fd",
       "title": "Receita Exemplo",
       "content": "O conteúdo é obrigatório",
       "thumbnail_filename": "bdacb8b4ff4e6eb74459d37cd6bf7ca9",
@@ -109,11 +108,10 @@ Padrão de resposta
 }
 ```
 
-### Editar receita /recipe/ PATCH (Precisa de autorização)
+### Editar receita /recipe/:recipeId PATCH (Precisa de autorização)
 
 O corpo precisa ser `multipart/formdata` e precisa conter os seguintes campos
 
-- userID - string
 - file - arquivo de imagem png ou jpg (opcional)\*
 - title - string
 - content - string
