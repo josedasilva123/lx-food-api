@@ -7,9 +7,9 @@ export class RecipeDelete {
    async execute(params: iRecipeDeleteParams) {
       const { recipeId } = params;
 
-      const objectRecipeID = new ObjectId(recipeId);
+      const objectRecipeId = new ObjectId(recipeId);
 
-      const recipe = await Recipe.findOne({ _id: objectRecipeID });
+      const recipe = await Recipe.findOne({ _id: objectRecipeId });
 
       if (!recipe) {
          throw new Error("A receita que você está tentando excluir não existe.");
@@ -19,7 +19,7 @@ export class RecipeDelete {
       
       s3Delete.execute(recipe.thumbnail_filename);
 
-      await Recipe.deleteOne({ _id: objectRecipeID });
+      await Recipe.deleteOne({ _id: objectRecipeId });
 
       return { message: "Receita excluída com sucesso!" };
    }

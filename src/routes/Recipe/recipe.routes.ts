@@ -9,7 +9,7 @@ import { recipeCreateValidation, recipeDeleteValidation, recipeEditValidation } 
 const router = Router();
 
 router.post("/", Authenticate, MulterSingleUpload, recipeCreateValidation(), Validate, HandleErrors(RecipeControllers.Create));
-router.patch("/", Authenticate, MulterSingleUpload, recipeEditValidation, Validate, HandleErrors(RecipeControllers.Edit));
+router.patch("/:recipeId", Authenticate, MulterSingleUpload, recipeEditValidation, Validate, HandleErrors(RecipeControllers.Edit));
 router.delete("/:recipeId", Authenticate, recipeDeleteValidation(), Validate, HandleErrors(RecipeControllers.Delete));
 router.get("/", HandleErrors(RecipeControllers.Get));
 router.get("/:_id", HandleErrors(RecipeControllers.GetOneById));

@@ -1,5 +1,6 @@
-export interface iRecipeCreateBody {
-   userID: string;
+import { iAuthenticateBody } from "../../@types/types";
+
+export interface iRecipeCreateBody extends iAuthenticateBody {
    title: string;
    content: string;
    categories: string;
@@ -9,12 +10,15 @@ export interface iRecipeDeleteParams {
    recipeId?: string;
 }
 
-export interface iRecipeEditBody {
-   _id: string;
-   userID: string;
+export interface iRecipeEditBody extends iAuthenticateBody {
+   userId: string;
    title: string;
    content: string;
    categories: string;
+}
+
+export interface iRecipeEditParams {
+   recipeId?: string;
 }
 
 export interface iGlobalRecipeQuery {
