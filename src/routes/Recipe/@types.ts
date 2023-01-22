@@ -1,6 +1,7 @@
 import { iAuthenticateBody } from "../../@types/types";
 
-export interface iRecipeCreateBody extends iAuthenticateBody {
+export interface iRecipeCreateBody {
+   userId: string;
    title: string;
    content: string;
    categories: string;
@@ -10,7 +11,7 @@ export interface iRecipeDeleteParams {
    recipeId?: string;
 }
 
-export interface iRecipeEditBody extends iAuthenticateBody {
+export interface iRecipeEditBody {
    userId: string;
    title: string;
    content: string;

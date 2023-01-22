@@ -5,7 +5,7 @@ import { iRecipeEditBody, iRecipeEditParams } from "../../routes/Recipe/@types";
 
 export class RecipeEdit {
    async execute(body: iRecipeEditBody, params: iRecipeEditParams, file?: Info) {
-      const { id, title, content, categories } = body;
+      const { userId, title, content, categories } = body;
       const { recipeId } = params;
 
       const objectRecipeId = new ObjectId(recipeId);
@@ -16,7 +16,7 @@ export class RecipeEdit {
          throw new Error("Desculpe, receita não encontrada.");
       }
 
-      if (id !== recipe.userId) {
+      if (userId !== recipe.userId) {
          throw new Error("Somente o propretário da receita pode edita-la.");
       }
 
