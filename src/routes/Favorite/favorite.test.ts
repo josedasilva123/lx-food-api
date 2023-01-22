@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import request from "supertest";
+import Recipe from "../../models/Recipes";
 import User from "../../models/User";
 import { serverHttp } from "../../server";
 
@@ -21,20 +22,31 @@ const getMockUserToken = async (email: string, password: string) => {
 beforeAll(async () => {
    await mongoose.connect("mongodb://localhost:27017/lxcook-test");
    await request(serverHttp).post("/user").send(mockUser);
-   
+   await Recipe.create({
+      userID: '6368fd43446e687ef917f6fd',
+      title: 'Receita Exemplo',
+      content: 'Conteúdo da receita de exemplo...',
+      thumbnail_filename: '/08ddb62954942371563c8b8a02e6359c'  ,
+      thumbnail_url: 'https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/08ddb62954942371563c8b8a02e6359c'
+   })
 });
 
 describe("Favorite Routes", () => {
    it("should create a new favorite", async () => {
       const token = await getMockUserToken(mockUser.email, mockUser.password);
 
+      const getRecipe = await request(serverHttp)
+      .get("/recipe")
+      .set("auth", token)
+      .expect(200);      
+
       const response = await request(serverHttp)
          .post("/favorite/")
          .set("auth", token)
          .send({
-            recipeId: "637e1f5d9e648375aeed83f2",
-            title: "Hamburguer Boladão",
-            thumbnail_url: "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/a1b95a71fa39b58672ce269cd0d6d88d",
+            recipeId: String(getRecipe.body.recipes[0]._id),
+            title: getRecipe.body.recipes[0].title,
+            thumbnail_url: getRecipe.body.recipes[0].thumbnail_url,
          })
          .expect(200);
 
@@ -44,13 +56,18 @@ describe("Favorite Routes", () => {
    it("should throw error when try to create a new favorite with the same id of another", async () => {
       const token = await getMockUserToken(mockUser.email, mockUser.password);
 
+      const getRecipe = await request(serverHttp)
+      .get("/recipe")
+      .set("auth", token)
+      .expect(200);
+
       const response = await request(serverHttp)
          .post("/favorite/")
          .set("auth", token)
          .send({
-            recipeId: "637e1f5d9e648375aeed83f2",
-            title: "Hamburguer Boladão",
-            thumbnail_url: "https://alexconderexamplebucket.s3.sa-east-1.amazonaws.com/a1b95a71fa39b58672ce269cd0d6d88d",
+            recipeId: String(getRecipe.body.recipes[0]._id),
+            title: getRecipe.body.recipes[0].title,
+            thumbnail_url: getRecipe.body.recipes[0].thumbnail_url,
          })
          .expect(400);
 
@@ -82,10 +99,16 @@ describe("Favorite Routes", () => {
    it("should delete a existing favorite", async () => {
       const token = await getMockUserToken(mockUser.email, mockUser.password);
 
+      const getRecipe = await request(serverHttp)
+      .get("/recipe")
+      .set("auth", token)
+      .expect(200);
+
       const deleteResponse = await request(serverHttp)
-         .delete(`/favorite/637e1f5d9e648375aeed83f2/`)
+         .delete(`/favorite/${getRecipe.body.recipes[0]._id}`)
          .set("auth", token)
          .expect(200);
+         
 
       expect(deleteResponse.body.message).toBe("Favorito removido com sucesso!");
    });
@@ -93,5 +116,6 @@ describe("Favorite Routes", () => {
 
 afterAll(async () => {
    await User.deleteMany();
+   await Recipe.deleteMany();
    mongoose.disconnect();
 });
