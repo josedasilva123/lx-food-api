@@ -2,6 +2,8 @@ import { body, param, query } from "express-validator";
 
 export const recipeCreateValidation = () => {
    return [
+      body("userId").isString().withMessage("O ID de usário é (userId) é obrigatório"),
+
       body("title").isString().withMessage("O título é (title) é obrigatório"),
 
       body("content").isString().withMessage("O conteúdo é (content) é obrigatório"),
@@ -17,6 +19,8 @@ export const recipeDeleteValidation = () => {
 export const recipeEditValidation = () => {
    return [
       param("recipeId").isString().withMessage("O ID da receita (recipeId) é obrigatório"),
+
+      body("userId").isString().withMessage("O ID de usário é (userId) é obrigatório"),
 
       body("title").isString().withMessage("O título é (title) é obrigatório"),
 
