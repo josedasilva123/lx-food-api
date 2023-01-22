@@ -1,15 +1,14 @@
-import { Schema, model, ObjectId } from "mongoose";
+import { Schema, model } from "mongoose";
 
 interface iReview {
-   userID: string;
+   userId: string;
    userName: string;
    content: string;
    score: number;
 }
 
 export interface iRecipe {
-   _id?: ObjectId;
-   userID: string;
+   userId: string;
    title: string;
    content: string;
    thumbnail_filename: string;
@@ -20,7 +19,7 @@ export interface iRecipe {
 
 const recipeSchema = new Schema<iRecipe>(
    {
-      userID: { type: String, required: true },
+      userId: { type: String, required: true },
       title: { type: String, required: true },
       content: { type: String, required: true },
       thumbnail_filename: { type: String, required: true },

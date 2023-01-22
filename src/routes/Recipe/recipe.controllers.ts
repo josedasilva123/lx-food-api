@@ -10,6 +10,7 @@ import {
    iRecipeCreateBody,
    iRecipeDeleteParams,
    iRecipeEditBody,
+   iRecipeEditParams,
    iRecipeGetByOneParams,
 } from "./@types";
 
@@ -32,9 +33,9 @@ export default class RecipeControllers {
       res.status(200).json(response);
    }
 
-   static async Edit(req: Request<{}, {}, iRecipeEditBody, {}>, res: Response) {
+   static async Edit(req: Request<iRecipeEditParams, {}, iRecipeEditBody, {}>, res: Response) {
       const recipeEdit = new RecipeEdit();
-      const response = await recipeEdit.execute(req.body, req.file as Info);
+      const response = await recipeEdit.execute(req.body, req.params, req.file as Info);
 
       res.status(200).json(response);
    }

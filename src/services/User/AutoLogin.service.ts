@@ -8,7 +8,7 @@ export class UserAutoLogin {
 
       const userID = new ObjectId(id);
 
-      const user = (await User.findOne({ _id: userID })) as iUser;
+      const user = (await User.findOne({ _id: userID }));
 
       if (!user) {
          throw new Error("Usuário não encontrado.");

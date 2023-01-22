@@ -11,7 +11,7 @@ export class FavoriteCreate {
 
         const user = await User.findOne({ _id: newObjectUserID }) as iUser;
 
-        if(user.favoriteRecipes?.some(recipe => recipe.id === recipeId)){
+        if(user.favoriteRecipes?.some(recipe => recipe.recipeId === recipeId)){
             throw new Error("Está receita já está na lista de favoritos.");
         }
 
