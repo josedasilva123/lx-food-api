@@ -7,7 +7,6 @@ interface iUserRecipe {
 }
 
 export interface iUser {
-   _id?: ObjectId;
    name: string;
    password: string;
    email: string;
