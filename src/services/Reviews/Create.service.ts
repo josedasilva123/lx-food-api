@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 import { v4 as uuidv4 } from "uuid";
 import Recipe from "../../models/Recipes";
 import User from "../../models/User";
-export class RecipeCreate {
+export class ReviewCreate {
    async execute(body: any) {
       const reviewId = uuidv4();
       const { id, recipeId, content, score } = body;

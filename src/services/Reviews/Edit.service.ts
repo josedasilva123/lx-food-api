@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 import Recipe from "../../models/Recipes";
-export class RecipeCreate {
+export class ReviewCreate {
    async execute(body: any, params: any) {
       const { recipeId, reviewId } = params;
       const { id, content, score } = body;
