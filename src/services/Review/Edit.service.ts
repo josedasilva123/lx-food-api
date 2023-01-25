@@ -1,7 +1,8 @@
 import { ObjectId } from "mongodb";
 import Recipe from "../../models/Recipes";
+import { iReviewCreateBody, iReviewEditBody, iReviewEditParams } from "../../routes/Review/@types";
 export class ReviewEdit {
-   async execute(body: any, params: any) {
+   async execute(body: iReviewEditBody, params: iReviewEditParams) {
       const { recipeId, reviewId } = params;      
       const { id, content, score } = body;
 
@@ -26,11 +27,11 @@ export class ReviewEdit {
         throw new Error("A revisão que você está tentando editar não existe.")
       }
 
-      if(review.userId !== id){
+      if(String(review.userId) !== id){
         throw new Error("Somente o autor da revisão pode edita-la.")
       } 
       const newReviewsList = reviewList.map(review => {
-        if(review._id !== reviewId){
+        if(review._id === reviewId){
             return { ...review, ...newReview};
         } else {
             return review;

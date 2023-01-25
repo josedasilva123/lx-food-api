@@ -23,7 +23,7 @@ export class ReviewDelete {
         throw new Error("A revisão que você está tentando excluir não existe.")
       }
 
-      if(review.userId !== id){
+      if(String(review.userId) !== id){
         throw new Error("Somente o autor da revisão pode exclui-la.")
       }
 
