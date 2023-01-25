@@ -2,7 +2,7 @@ import { body, param, query } from "express-validator";
 
 export const recipeCreateValidation = () => {
    return [
-      body("userId").isString().withMessage("O ID de usário é (userId) é obrigatório"),
+      body("userId").isString().withMessage("O ID de usuário é (userId) é obrigatório"),
 
       body("title").isString().withMessage("O título é (title) é obrigatório"),
 
@@ -20,7 +20,7 @@ export const recipeEditValidation = () => {
    return [
       param("recipeId").isString().withMessage("O ID da receita (recipeId) é obrigatório"),
 
-      body("userId").isString().withMessage("O ID de usário é (userId) é obrigatório"),
+      body("userId").isString().withMessage("O ID de usuário é (userId) é obrigatório"),
 
       body("title").isString().withMessage("O título é (title) é obrigatório"),
 
