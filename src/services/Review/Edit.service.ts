@@ -1,8 +1,8 @@
 import { ObjectId } from "mongodb";
 import Recipe from "../../models/Recipes";
-export class ReviewCreate {
+export class ReviewEdit {
    async execute(body: any, params: any) {
-      const { recipeId, reviewId } = params;
+      const { recipeId, reviewId } = params;      
       const { id, content, score } = body;
 
       const newReview = {
@@ -46,6 +46,6 @@ export class ReviewCreate {
          }
       );
 
-      return { message: "Revisão cadastrada com sucesso!" };
+      return { message: "Revisão atualizada com sucesso!" };
    }
 }

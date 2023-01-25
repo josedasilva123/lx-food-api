@@ -1,7 +1,9 @@
 import { ObjectId } from "mongodb";
+import { iAuthenticateBody } from "../../@types/types";
 import Recipe from "../../models/Recipes";
+import { iReviewDeleteParams } from "../../routes/Review/@types";
 export class ReviewDelete {
-   async execute(body: any, params: any) {
+   async execute(body: iAuthenticateBody, params: iReviewDeleteParams) {
       const { id } = body;
       const { recipeId, reviewId } = params;
 

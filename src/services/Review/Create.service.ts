@@ -2,8 +2,9 @@ import { ObjectId } from "mongodb";
 import { v4 as uuidv4 } from "uuid";
 import Recipe from "../../models/Recipes";
 import User from "../../models/User";
+import { iReviewCreateBody } from "../../routes/Review/@types";
 export class ReviewCreate {
-   async execute(body: any) {
+   async execute(body: iReviewCreateBody) {
       const reviewId = uuidv4();
       const { id, recipeId, content, score } = body;
 
