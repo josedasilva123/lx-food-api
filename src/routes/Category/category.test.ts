@@ -20,7 +20,7 @@ const getMockUserToken = async (email: string, password: string) => {
 };
 
 beforeAll(async () => {
-   await mongoose.connect("mongodb://localhost:27017/lxcook-test");
+   await mongoose.connect("mongodb://localhost:27017/lxcook-category-test");
    await request(serverHttp).post("/user").send(mockUser);
 });
 
