@@ -7,7 +7,7 @@
     "build": "npx tsc",
     "start": "node app/index.js",
     "start:dev": "nodemon",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "author": "",
   "license": "ISC",
