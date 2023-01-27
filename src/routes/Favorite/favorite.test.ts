@@ -20,10 +20,10 @@ const getMockUserToken = async (email: string, password: string) => {
 };
 
 beforeAll(async () => {
-   await mongoose.connect("mongodb://localhost:27017/lxcook-test");
+   await mongoose.connect("mongodb://localhost:27017/lxcook-favorite-test");
    await request(serverHttp).post("/user").send(mockUser);
    await Recipe.create({
-      userID: '6368fd43446e687ef917f6fd',
+      userId: '6368fd43446e687ef917f6fd',
       title: 'Receita Exemplo',
       content: 'Conteúdo da receita de exemplo...',
       thumbnail_filename: '/08ddb62954942371563c8b8a02e6359c'  ,

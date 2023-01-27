@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
 
 interface iReview {
+   _id: string;
    userId: string;
    userName: string;
    content: string;
