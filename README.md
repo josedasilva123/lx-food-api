@@ -293,3 +293,62 @@ Padrão de resposta
    "error": "Mensagem de erro..."
 }
 ```
+
+## Rotas de avaliações
+
+### Criar uma avaliação POST /review (Precisa de autorização)
+
+Padrão de corpo
+
+```json
+{
+	"recipeId": "637e1f5d9e648375aeed83f2",
+	"content": "Uma verdadeira delícia!",
+	"score": 5
+}
+```
+
+Padrão de resposta
+
+```json
+{
+	"review": {
+		"_id": "99ed1d89-2381-4fb2-b607-22b8cd3bc446",
+		"userId": "6368fd43446e687ef917f6fd",
+		"userName": "Alex Conder",
+		"recipeId": "637e1f5d9e648375aeed83f2",
+		"content": "Uma verdadeira delícia!",
+		"score": 5
+	},
+	"message": "Revisão cadastrada com sucesso!"
+}
+```
+
+### Editar uma avaliação PATCH /review/:recipeId/:reviewId (Precisa de autorização)
+
+Padrão de corpo:
+
+```json
+{
+	"content": "Uma verdadeira delícia! Maravilhosa!",
+	"score": 5
+}
+```
+
+Padrão de resposta
+
+```json
+{
+	"message": "Revisão atualizada com sucesso!"
+}
+```
+
+### Delete uma avaliação DELETE /review/:recipeId/:reviewId (Precisa de autorização)
+
+Padrão de resposta
+
+```json
+{
+	"message": "Revisão atualizada com sucesso!"
+}
+```
