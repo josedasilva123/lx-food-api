@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import Recipe from "../../models/Recipes";
 import User from "../../models/User";
 import { iReviewCreateBody } from "../../routes/Review/@types";
+
 export class ReviewCreate {
    async execute(body: iReviewCreateBody) {
       const reviewId = uuidv4();
@@ -14,7 +15,7 @@ export class ReviewCreate {
 
       const newReview = {
          _id: reviewId,
-         userId: user?._id,
+         userId: String(user?._id),
          userName: user?.name,
          recipeId,
          content,
@@ -31,7 +32,7 @@ export class ReviewCreate {
 
       const reviewList = recipe?.reviews ? recipe?.reviews : [];
 
-      if (reviewList.some((review) => review.userId === user?.id)) {
+      if (reviewList.some((review) => review.userId === String(user?._id))) {
          throw new Error("O respectivo usuário já avaliou está receita.");
       }
 

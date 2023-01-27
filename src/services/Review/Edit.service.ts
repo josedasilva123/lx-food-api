@@ -1,9 +1,10 @@
 import { ObjectId } from "mongodb";
 import Recipe from "../../models/Recipes";
-import { iReviewCreateBody, iReviewEditBody, iReviewEditParams } from "../../routes/Review/@types";
+import { iReviewEditBody, iReviewEditParams } from "../../routes/Review/@types";
+
 export class ReviewEdit {
    async execute(body: iReviewEditBody, params: iReviewEditParams) {
-      const { recipeId, reviewId } = params;      
+      const { recipeId, reviewId } = params;
       const { id, content, score } = body;
 
       const newReview = {
@@ -21,22 +22,22 @@ export class ReviewEdit {
 
       const reviewList = recipe?.reviews ? recipe?.reviews : [];
 
-      const review = reviewList.find(review => review._id === reviewId);
+      const review = reviewList.find((review) => review._id === reviewId);
 
-      if(!review){
-        throw new Error("A revisão que você está tentando editar não existe.")
+      if (!review) {
+         throw new Error("A revisão que você está tentando editar não existe.");
       }
 
-      if(String(review.userId) !== id){
-        throw new Error("Somente o autor da revisão pode edita-la.")
-      } 
-      const newReviewsList = reviewList.map(review => {
-        if(review._id === reviewId){
-            return { ...review, ...newReview};
-        } else {
+      if (String(review.userId) !== id) {
+         throw new Error("Somente o autor da revisão pode edita-la.");
+      }
+      const newReviewsList = reviewList.map((review) => {
+         if (review._id === reviewId) {
+            return { ...review, ...newReview };
+         } else {
             return review;
-        }
-      })
+         }
+      });
 
       await Recipe.updateOne(
          { _id: recipeObjectId },

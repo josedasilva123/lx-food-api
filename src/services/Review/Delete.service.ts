@@ -2,6 +2,7 @@ import { ObjectId } from "mongodb";
 import { iAuthenticateBody } from "../../@types/types";
 import Recipe from "../../models/Recipes";
 import { iReviewDeleteParams } from "../../routes/Review/@types";
+
 export class ReviewDelete {
    async execute(body: iAuthenticateBody, params: iReviewDeleteParams) {
       const { id } = body;
@@ -17,17 +18,17 @@ export class ReviewDelete {
 
       const reviewList = recipe?.reviews ? recipe?.reviews : [];
 
-      const review = reviewList.find(review => review._id === reviewId);
+      const review = reviewList.find((review) => review._id === reviewId);
 
-      if(!review){
-        throw new Error("A revisão que você está tentando excluir não existe.")
+      if (!review) {
+         throw new Error("A revisão que você está tentando excluir não existe.");
       }
 
-      if(String(review.userId) !== id){
-        throw new Error("Somente o autor da revisão pode exclui-la.")
+      if (String(review.userId) !== id) {
+         throw new Error("Somente o autor da revisão pode exclui-la.");
       }
 
-      const newReviewsList = reviewList.filter(review => review._id !== reviewId);
+      const newReviewsList = reviewList.filter((review) => review._id !== reviewId);
 
       await Recipe.updateOne(
          { _id: recipeObjectId },
