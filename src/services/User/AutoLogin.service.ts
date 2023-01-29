@@ -16,7 +16,7 @@ export class UserAutoLogin {
 
       return {
          user: {
-            _id: user._id,
+            id: user._id,
             name: user.name,
             email: user.email,
             favoriteRecipes: user.favoriteRecipes,
